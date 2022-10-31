@@ -1,7 +1,6 @@
 ## ----warning=FALSE, message=FALSE---------------------------------------------
 require(TCIU)
 require(DT)
-require(AnalyzeFMRI)
 
 ## -----------------------------------------------------------------------------
 fmri_generate = fmri_simulate_func(dim_data = c(64, 64, 40), mask = mask, 

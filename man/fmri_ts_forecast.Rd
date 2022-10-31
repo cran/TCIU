@@ -23,10 +23,9 @@ a function to forecast the fMRI data based on the time series
 The function \code{fmri_ts_forecast} is used to forecast with time series. It will fit the best ARIMA model to univariate time series from the input fMRI data.
 }
 \examples{
-require('AnalyzeFMRI')
 fmri_generate = fmri_simulate_func(dim_data = c(64, 64, 40), mask = mask)
 \donttest{
-smoothmod <- AnalyzeFMRI::GaussSmoothArray(fmri_generate$fmri_data, sigma = diag(3,3))
+smoothmod <- GaussSmoothArray(fmri_generate$fmri_data, sigma = diag(3,3))
 fmri_ts_forecast(smoothmod,c(41,44,33))
 }
 }

@@ -31,7 +31,6 @@ In this vignette, we introduce the detailed usage of all the functions with exam
 ```{r warning=FALSE, message=FALSE}
 require(TCIU)
 require(DT)
-require(AnalyzeFMRI)
 ```
 
 # Function list

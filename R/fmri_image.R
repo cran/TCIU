@@ -29,70 +29,74 @@ fmri_image =  function(fmridata,
                        option = "manually",
                        voxel_location = NULL,
                        time = NULL) {
-    if (option == "auto") {
-        print("Please key in x, y, z, and time in sequence")
-        x = 0
-        y = 0
-        z = 0
-        t = 0
-        while (x > 64 | x < 1 | x%%1 != 0) {
-            x <- scan(n = 1)
-            if (x > 64 | x < 1 | x%%1 != 0) {
-                print("input x is not in range or is not an integer! Please retype!")
-            }
-        }
-        while (y > 64 | y < 1 | y%%1 != 0) {
-            y <- scan(n = 1)
-            if (y > 64 | y < 1 | y%%1 != 0) {
-                print("input y is not in range or is not an integer! Please retype!")
-            }
-        }
-        while (z > 40 | z < 1 | z%%1 != 0) {
-            z <- scan(n = 1)
-            if (z > 40 | z < 1 | z%%1 != 0) {
-                print("input z is not in range or is not an integer! Please retype!")
-            }
-        }
-        while (t > 160 | t < 1 | t%%1 != 0) {
-            t <- scan(n = 1)
-            if (t > 160 | t < 1 | t%%1 != 0) {
-                print("input time is not in range or is not an integer! Please retype!")
-            }
-        }
-    } else if (option == "manually") {
-        x = voxel_location[1]
-        y = voxel_location[2]
-        z = voxel_location[3]
-        t = time
+  xdim=dim(fmridata)[1]
+  ydim=dim(fmridata)[2]
+  zdim=dim(fmridata)[3]
+  tdim=dim(fmridata)[4]
+  if (option == "auto") {
+    print("Please key in x, y, z, and time in sequence")
+    x = 0
+    y = 0
+    z = 0
+    t = 0
+    while (x > xdim | x < 1 | x%%1 != 0) {
+      x <- scan(n = 1)
+      if (x > xdim | x < 1 | x%%1 != 0) {
+        print("input x is not in range or is not an integer! Please retype!")
+      }
     }
-    # time series
-    try1 <- fmridata[x, y, z, ]
-    try1 <- detrend(try1, bp = seq(21, 160, by = 20))
-    tstry1 <- ts(try1)
-    trymod1 <- auto.arima(tstry1)
-    ksmth <- ksmooth(c(1:160), tstry1, kernel = "normal", bandwidth = 5)
-    smth <- smooth(tstry1)
-    ksth <- data.frame(tstry1, smth, ksmth$y)
-    TScore <- GTSplot(ksth, ts_name = c("original", "smooth", "ksmooth"), COLO = c("3399FF", "66FF33", "FF6666"))
-    
-    # z slice
-    
-    zfMRI <- t(fmridata[, , z, t])
-    zslice <- ggplotly(ggplot() + geom_hline(yintercept = y, color = "red") + geom_vline(xintercept = x, color = "red") + xlim(0, 
-        64) + ylim(0, 64)) %>% add_contour(z = ~zfMRI)
-    
-    # x slice
-    
-    xfMRI <- t(fmridata[x, , , t])
-    xslice <- ggplotly(ggplot() + geom_hline(yintercept = z, color = "red") + geom_vline(xintercept = y, color = "red") + xlim(0, 
-        64) + ylim(0, 40)) %>% add_contour(z = ~xfMRI)
-    
-    # y slice
-    yfMRI <- t(fmridata[, y, , t])
-    yslice <- ggplotly(ggplot() + geom_hline(yintercept = z, color = "red") + geom_vline(xintercept = x, color = "red") + xlim(0, 
-        64) + ylim(0, 40)) %>% add_contour(z = ~yfMRI)
-    
-    # combine all 4 plots:
-    result <- subplot(TScore, zslice, xslice, yslice, nrows = 2)
-    return(result)
+    while (y > ydim | y < 1 | y%%1 != 0) {
+      y <- scan(n = 1)
+      if (y > ydim | y < 1 | y%%1 != 0) {
+        print("input y is not in range or is not an integer! Please retype!")
+      }
+    }
+    while (z > zdim | z < 1 | z%%1 != 0) {
+      z <- scan(n = 1)
+      if (z > zdim | z < 1 | z%%1 != 0) {
+        print("input z is not in range or is not an integer! Please retype!")
+      }
+    }
+    while (t > tdim | t < 1 | t%%1 != 0) {
+      t <- scan(n = 1)
+      if (t > tdim | t < 1 | t%%1 != 0) {
+        print("input time is not in range or is not an integer! Please retype!")
+      }
+    }
+  } else if (option == "manually") {
+    x = voxel_location[1]
+    y = voxel_location[2]
+    z = voxel_location[3]
+    t = time
+  }
+  # time series
+  try1 <- fmridata[x, y, z, ]
+  try1 <- detrend(try1, bp = seq(21, tdim, by = 20))
+  tstry1 <- ts(try1)
+  trymod1 <- auto.arima(tstry1)
+  ksmth <- ksmooth(c(1:tdim), tstry1, kernel = "normal", bandwidth = 5)
+  smth <- smooth(tstry1)
+  ksth <- data.frame(tstry1, smth, ksmth$y)
+  TScore <- GTSplot(ksth, ts_name = c("original", "smooth", "ksmooth"), COLO = c("3399FF", "66FF33", "FF6666"))
+  
+  # z slice
+  
+  zfMRI <- t(fmridata[, , z, t])
+  zslice <- ggplotly(ggplot() + geom_hline(yintercept = y, color = "red") + geom_vline(xintercept = x, color = "red") + xlim(0, 
+                                                                                                                             xdim) + ylim(0, ydim)) %>% add_contour(z = ~zfMRI)
+  
+  # x slice
+  
+  xfMRI <- t(fmridata[x, , , t])
+  xslice <- ggplotly(ggplot() + geom_hline(yintercept = z, color = "red") + geom_vline(xintercept = y, color = "red") + xlim(0, 
+                                                                                                                             ydim) + ylim(0, zdim)) %>% add_contour(z = ~xfMRI)
+  
+  # y slice
+  yfMRI <- t(fmridata[, y, , t])
+  yslice <- ggplotly(ggplot() + geom_hline(yintercept = z, color = "red") + geom_vline(xintercept = x, color = "red") + xlim(0, 
+                                                                                                                             xdim) + ylim(0, zdim)) %>% add_contour(z = ~yfMRI)
+  
+  # combine all 4 plots:
+  result <- subplot(TScore, zslice, xslice, yslice, nrows = 2)
+  return(result)
 }

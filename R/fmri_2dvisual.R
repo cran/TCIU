@@ -85,14 +85,14 @@ fmri_2dvisual = function(pval,
     
     
     # generate customized error message based on different wrong input
-    if((class(pval)!="array") |
+    if((is.array(pval)!=TRUE) |
        (length(dim(pval))!=3)){
       stop("'pval' should be a 3d array.")
-    }else if((class(axis_ls)!="list" | 
+    }else if((is.list(axis_ls)!=TRUE | 
               ((axis_ls[[1]] %in% c("x", "y", "z")) == FALSE))){
       stop("'axis_ls' should be a list, with the first element as a string from 'x', 'y' or 'z'.")
     }else if(is.null(hemody_data) != TRUE){
-      if((class(hemody_data)!="array") | 
+      if((is.array(hemody_data)!=TRUE) | 
          (length(dim(hemody_data))!=3)){
         stop("If 'hemody_data' is not NULL, then it should be a 3d array.")
       }
@@ -100,11 +100,11 @@ fmri_2dvisual = function(pval,
              (length(dim(mask))!=3)){
       stop("'mask' should be a 3d array.")
     }else if(is.null(p_threshold) != TRUE){
-      if((class(p_threshold) != "numeric") | 
+      if((is.numeric(p_threshold) != TRUE) | 
          (p_threshold > 0.05) | (p_threshold <= 0)){
         stop("'p_threshold should be NULL or a numeric value in range of (0, 0.05].'")
       }
-    }else if(class(legend_show) != "logical"){
+    }else if(is.logical(legend_show) != TRUE){
       stop("'legend_show' should be a logical TRUE or FALSE.")
     }else if((method %in% c("scale_p", "min_max", "low5_percent")) != TRUE){
       stop("'method' should only choose from 'scale_p', 'min_max' or 'low5_percent'.")

@@ -1,7 +1,7 @@
 Package: TCIU
 Title: Spacekime Analytics, Time Complexity and Inferential Uncertainty
-Version: 1.2.0
-Authors@R: c(person("Yongkai", "Qiu", role = "aut", email = "yongkai@umich.edu"),
+Version: 1.2.1
+Authors@R: c(person("Yongkai", "Qiu", role = c("aut", "cre"), email = "yongkai@umich.edu"),
              person("Zhe", "Yin", role = "aut"),
              person("Jinwen", "Cao", role = "aut"),
              person("Yupeng", "Zhang", role = "aut"),
@@ -11,10 +11,11 @@ Authors@R: c(person("Yongkai", "Qiu", role = "aut", email = "yongkai@umich.edu")
              person("Ranjan", "Maitra", role = "ctb"),
              person("Daniel", "Rowe", role = "ctb"),
              person("Daniel", "Adrian", role = "ctb", comment = "gLRT method for complex-valued fMRI statistics"),
-             person("Yunjie", "Guo", role = c("aut", "cre"), email = "jerryguo@umich.edu"),
+             person("Yunjie", "Guo", role = "aut", email = "jerryguo@umich.edu"),
              person("Ivo","Dinov", role = "aut", email = "statistics@umich.edu"))
-URL: https://github.com/SOCR/TCIU, https://spacekime.org,
-        https://tciu.predictive.space
+URL: https://github.com/SOCR/TCIU,
+        https://www.socr.umich.edu/spacekime/,
+        https://www.socr.umich.edu/TCIU/
 BugReports: https://github.com/SOCR/TCIU/issues
 Description: Provide the core functionality to transform longitudinal data to
     complex-time (kime) data using analytic and numerical techniques, visualize the original 
@@ -29,8 +30,8 @@ Description: Provide the core functionality to transform longitudinal data to
     3) Laplace transform and kimesurface reconstructions of the fMRI data.
 Depends: R (>= 3.5.0)
 Imports: stats, ggplot2, dplyr, tidyr, RColorBrewer, fancycut, scales,
-        plotly, gridExtra, ggpubr, ICSNP, AnalyzeFMRI, rrcov, geometry,
-        DT, forecast, fmri, pracma, zoo, extraDistr, parallel, foreach,
+        plotly, gridExtra, ggpubr, ICSNP, rrcov, geometry, DT,
+        forecast, fmri, pracma, zoo, extraDistr, parallel, foreach,
         spatstat.core, spatstat.geom, cubature, doParallel, reshape2,
         MultiwayRegression
 Suggests: oro.nifti, magrittr, knitr, rmarkdown, webshot
@@ -38,11 +39,11 @@ License: GPL-3
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.2.1
 NeedsCompilation: yes
 SystemRequirements: GNU make
-Packaged: 2021-04-30 12:01:05 UTC; gyj99
-Author: Yongkai Qiu [aut],
+Packaged: 2022-10-31 21:23:47 UTC; qyk02
+Author: Yongkai Qiu [aut, cre],
   Zhe Yin [aut],
   Jinwen Cao [aut],
   Yupeng Zhang [aut],
@@ -52,8 +53,8 @@ Author: Yongkai Qiu [aut],
   Ranjan Maitra [ctb],
   Daniel Rowe [ctb],
   Daniel Adrian [ctb] (gLRT method for complex-valued fMRI statistics),
-  Yunjie Guo [aut, cre],
+  Yunjie Guo [aut],
   Ivo Dinov [aut]
-Maintainer: Yunjie Guo <jerryguo@umich.edu>
+Maintainer: Yongkai Qiu <yongkai@umich.edu>
 Repository: CRAN
-Date/Publication: 2021-04-30 15:10:03 UTC
+Date/Publication: 2022-11-01 00:40:06 UTC

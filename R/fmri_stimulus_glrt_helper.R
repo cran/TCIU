@@ -39,7 +39,7 @@ complex_gen_est_pval = function(voxel, onsets, durations, TR = 3){
          silent = TRUE
     )
 
-  if (class(order) == "try-error"){order = 0}
+  if (inherits(order,"try-error")){order = 0}
 
   lrt =
     try(complex.gen.est.lrt(X, yr = Re(voxel), yi = Im(voxel),
@@ -47,7 +47,7 @@ complex_gen_est_pval = function(voxel, onsets, durations, TR = 3){
         silent = TRUE)
 
 
-  if (class(lrt) == "try-error"){
+  if (inherits(lrt,"try-error")){
     p_val = 1
   } else{
     p_val = 1-pchisq(lrt, df=1, lower.tail=TRUE)

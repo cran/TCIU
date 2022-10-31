@@ -29,46 +29,47 @@ fmri_time_series = function(fmridata,
                             voxel_location,
                             is.4d = TRUE,
                             ref = NULL) {
-    if (is.4d) {
-        X = voxel_location[1]
-        Y = voxel_location[2]
-        Z = voxel_location[3]
-        realnum <- Re(fmridata[X, Y, Z, ])
-        imgnum <- Im(fmridata[X, Y, Z, ])
-        phasenum <- Arg(fmridata[X, Y, Z, ])
-        modnum <- Mod(fmridata[X, Y, Z, ])
-    } else {
-        realnum <- Re(fmridata)
-        imgnum <- Im(fmridata)
-        phasenum <- Arg(fmridata)
-        modnum <- Mod(fmridata)
-    }
-    realnum1 <- detrend(realnum, bp = seq(21, 160, by = 20))
-    tsrealnum1 <- ts(realnum1)
-    ksmthrealnum <- ksmooth(c(1:160), tsrealnum1, kernel = "normal", bandwidth = 5)
-    ksthrealnum <- data.frame(tsrealnum1, ksmthrealnum$y)
-    TScore_realnum <- GTSplot(ksthrealnum, Unit = "time point", ts_name = c("real_original", "real_ksmooth"), COLO = c("FFCC33", 
-        "00CCFF"))
-    imgnum1 <- detrend(imgnum, bp = seq(21, 160, by = 20))
-    tsimgnum1 <- ts(imgnum1)
-    ksmthimgnum <- ksmooth(c(1:160), tsimgnum1, kernel = "normal", bandwidth = 5)
-    ksthimgnum <- data.frame(tsimgnum1, ksmthimgnum$y)
-    TScore_imgnum <- GTSplot(ksthimgnum, Unit = "time point", ts_name = c("img_original", "img_ksmooth"), COLO = c("FF9966", "0099FF"))
-    phasenum1 <- detrend(phasenum, bp = seq(21, 160, by = 20))
-    tsphasenum1 <- ts(phasenum1)
-    ksmthphasenum <- ksmooth(c(1:160), tsphasenum1, kernel = "normal", bandwidth = 5)
-    ksthphasenum <- data.frame(tsphasenum1, ksmthphasenum$y)
-    TScore_phasenum <- GTSplot(ksthphasenum, Unit = "time point", ts_name = c("phase_original", "phase_ksmooth"), COLO = c("FF6633", 
-        "0066FF"))
-    modnum1 <- detrend(modnum, bp = seq(21, 160, by = 20))
-    tsmodnum1 <- ts(modnum1)
-    ksmthmodnum <- ksmooth(c(1:160), tsmodnum1, kernel = "normal", bandwidth = 5)
-    ksthmodnum <- data.frame(tsmodnum1, ksmthmodnum$y)
-    TScore_modnum <- GTSplot(ksthmodnum, Unit = "time point", ts_name = c("mod_original", "mod_ksmooth"), COLO = c("CC3300", "0033FF"))
-    if (is.null(ref)) {
-        result <- plotly::subplot(TScore_realnum, TScore_imgnum, TScore_phasenum, TScore_modnum, nrows = 4)
-    } else {
-        result <- plotly::subplot(TScore_realnum, TScore_imgnum, TScore_phasenum, TScore_modnum, ref, nrows = 5)
-    }
-    return(result)
+  if (is.4d) {
+    X = voxel_location[1]
+    Y = voxel_location[2]
+    Z = voxel_location[3]
+    realnum <- Re(fmridata[X, Y, Z, ])
+    imgnum <- Im(fmridata[X, Y, Z, ])
+    phasenum <- Arg(fmridata[X, Y, Z, ])
+    modnum <- Mod(fmridata[X, Y, Z, ])
+  } else {
+    realnum <- Re(fmridata)
+    imgnum <- Im(fmridata)
+    phasenum <- Arg(fmridata)
+    modnum <- Mod(fmridata)
+  }
+  tlength=length(realnum)
+  realnum1 <- detrend(realnum, bp = seq(21, tlength, by = 20))
+  tsrealnum1 <- ts(realnum1)
+  ksmthrealnum <- ksmooth(c(1:tlength), tsrealnum1, kernel = "normal", bandwidth = 5)
+  ksthrealnum <- data.frame(tsrealnum1, ksmthrealnum$y)
+  TScore_realnum <- GTSplot(ksthrealnum, Unit = "time point", ts_name = c("real_original", "real_ksmooth"), COLO = c("FFCC33", 
+                                                                                                                     "00CCFF"))
+  imgnum1 <- detrend(imgnum, bp = seq(21, tlength, by = 20))
+  tsimgnum1 <- ts(imgnum1)
+  ksmthimgnum <- ksmooth(c(1:tlength), tsimgnum1, kernel = "normal", bandwidth = 5)
+  ksthimgnum <- data.frame(tsimgnum1, ksmthimgnum$y)
+  TScore_imgnum <- GTSplot(ksthimgnum, Unit = "time point", ts_name = c("img_original", "img_ksmooth"), COLO = c("FF9966", "0099FF"))
+  phasenum1 <- detrend(phasenum, bp = seq(21, tlength, by = 20))
+  tsphasenum1 <- ts(phasenum1)
+  ksmthphasenum <- ksmooth(c(1:tlength), tsphasenum1, kernel = "normal", bandwidth = 5)
+  ksthphasenum <- data.frame(tsphasenum1, ksmthphasenum$y)
+  TScore_phasenum <- GTSplot(ksthphasenum, Unit = "time point", ts_name = c("phase_original", "phase_ksmooth"), COLO = c("FF6633", 
+                                                                                                                         "0066FF"))
+  modnum1 <- detrend(modnum, bp = seq(21, tlength, by = 20))
+  tsmodnum1 <- ts(modnum1)
+  ksmthmodnum <- ksmooth(c(1:tlength), tsmodnum1, kernel = "normal", bandwidth = 5)
+  ksthmodnum <- data.frame(tsmodnum1, ksmthmodnum$y)
+  TScore_modnum <- GTSplot(ksthmodnum, Unit = "time point", ts_name = c("mod_original", "mod_ksmooth"), COLO = c("CC3300", "0033FF"))
+  if (is.null(ref)) {
+    result <- plotly::subplot(TScore_realnum, TScore_imgnum, TScore_phasenum, TScore_modnum, nrows = 4)
+  } else {
+    result <- plotly::subplot(TScore_realnum, TScore_imgnum, TScore_phasenum, TScore_modnum, ref, nrows = 5)
+  }
+  return(result)
 }

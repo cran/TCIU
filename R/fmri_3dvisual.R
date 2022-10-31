@@ -73,14 +73,14 @@ fmri_3dvisual = function(pval,
   }
   
   # generate cutomized error message based on different wrong input
-  if((class(pval)!="array") |
+  if((is.array(pval)!=TRUE) |
       (length(dim(pval))!=3)){
     stop("'pval' should be a 3d array.")
   }else if(((class(mask) %in% c("array", "nifti")) != TRUE) |
             (length(dim(mask))!=3)){
     stop("'mask' should be a 3d array.")
   }else if(is.null(p_threshold) != TRUE){
-    if((class(p_threshold) != "numeric") | 
+    if((is.numeric(p_threshold) != TRUE) | 
         (p_threshold > 0.05) | (p_threshold <= 0)){
       stop("'p_threshold should be a numeric value in range of (0, 0.05].'")
     }

@@ -74,40 +74,40 @@ fmri_pval_comparison_2d = function(pval_ls,
                                    multi_pranges = TRUE,
                                    mask_width = 1.5){
   
-  if((class(axis_i_lses) == "list") &
-     (class(axis_i_lses[[1]]) == "list")){
+  if((inherits(axis_i_lses,"list")) &
+     (inherits(axis_i_lses[[1]],"list"))){
     axis_i_ls = do.call(c, axis_i_lses)
     if(length(axis_i_ls)!=3*length(axis_i_lses)){
       stop("If 'axis_i_ls'contains more than one list of index",
            ", ", "each list should have 3 elements for x, y, z.")
     }
-  }else if((class(axis_i_lses) == "list") &
-           (class(axis_i_lses[[1]]) == "numeric") &#change, because the first element can be null
+  }else if((inherits(axis_i_lses,"list")) &
+           (inherits(axis_i_lses[[1]],"numeric")) &#change, because the first element can be null
            (length(axis_i_lses) == 3)){
     axis_i_ls = rep(axis_i_lses, length(pval_ls))
-  }else if((class(axis_i_lses) != "list")| 
+  }else if((inherits(axis_i_lses,"list") == FALSE)| 
            (length(axis_i_lses)!=3)){
     stop("'axis_i_ls' should be list with 3 elements for x, y, z.")
   }###!!! not accurate, change!
   
   # generate cutomized error message based on different wrong input
-  if((class(pval_ls)!="list") |
+  if((inherits(pval_ls,"list")==FALSE) |
      (length(pval_ls)!=length(pval_name_ls)) |
-     (class(pval_name_ls)!="list")
+     (inherits(pval_name_ls,"list")==FALSE)
   ){
     stop("'pval_ls', 'pval_name_ls'should be list with the same number of  elements.")
   }else if(is.null(hemody_data) != TRUE){
-    if((class(hemody_data)!="array") | 
+    if((inherits(hemody_data,"array")==FALSE) | 
        (length(dim(hemody_data))!=3)){
       stop("If 'hemody_data' is not NULL, then it should be a 3d array.")
     }
   }else if(((class(mask) %in% c("array", "nifti")) != TRUE) |
            (length(dim(mask))!=3)){
     stop("'mask' should be a 3d array.")
-  }else if((class(p_threshold) != "numeric") | 
+  }else if((inherits(p_threshold,"numeric") ==FALSE) | 
            (p_threshold > 0.05) | (p_threshold <= 0)){
     stop("'p_threshold should be a numeric value in range of (0, 0.5].'")
-  }else if(class(legend_show) != "logical"){
+  }else if(inherits(legend_show,"logical") ==FALSE){
     stop("'legend_show' should be a logical TRUE or FALSE.")
   }else if((method %in% c("scale_p", "min_max")) != TRUE){
     stop("'method' should only choose from 'scale_p' or 'min_max'.")
