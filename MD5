@@ -1,5 +1,5 @@
-812956b16434cd4f387060c552141522 *DESCRIPTION
-57574da77399a47c2aa3f5fe92cb0ced *NAMESPACE
+7f63845db6043c3bdb88b5e02363ca63 *DESCRIPTION
+0b984d754eb809d238a526ccfeba8f1d *NAMESPACE
 b380d8f0a226bc47ece0f45009d803d4 *R/GaussSmoothArray.R
 5fa9be4d8d4a4a43a78b7223c66bcf47 *R/GaussSmoothKernel.R
 e2061d540a28b1657347e57c65f2ae09 *R/ILT.R
@@ -10,7 +10,7 @@ e95a0471a20d01843e81770894f42a36 *R/fmri_2dvisual.R
 0c5107dcb9174565d82518b238d06795 *R/fmri_ROI_phase1.R
 05cbeb34d309a7048c18d3065fa5bb7d *R/fmri_ROI_phase2.R
 ef4551a36a0f4fcac8346955d7d5d08d *R/fmri_image.R
-d1ab766cbcc81ec2e4ecfd8aa649924f *R/fmri_kimesurface.R
+5ca6096ed711ea981507b143ac01a4a1 *R/fmri_kimesurface.R
 b771170f5c95835e99c778e60a174aa8 *R/fmri_post_hoc.R
 4f86bfe30b9ae8af53918af3a3bd53e1 *R/fmri_pval_comparison_2d.R
 c2369501c13a3f7cb48bcd4b1106672c *R/fmri_pval_comparison_3d.R
@@ -44,10 +44,10 @@ b4f7ec31a96ef1e1da0a9658c1726292 *data/sample.RData
 e9b7fef5d17f12840e96807ee6644456 *demo/fmri_demo_func.R
 539f1caf4e662fc244f422f38c39956c *inst/doc/tciu-LT-kimesurface.R
 b51aef4c7c7a78f6b76b9310b427c48d *inst/doc/tciu-LT-kimesurface.Rmd
-216315457b5c52c6c5b84e3ac9a64db3 *inst/doc/tciu-LT-kimesurface.html
+f1b7e18608b465d78fb1664424fb2a4c *inst/doc/tciu-LT-kimesurface.html
 cb9ee55ef09fd99195b6998bef33b20e *inst/doc/tciu-fMRI-analytics.R
 d3a860fe26e985edc03c1b2850102d98 *inst/doc/tciu-fMRI-analytics.Rmd
-b635f0ef99d248f4e8e7cf8eb2751687 *inst/doc/tciu-fMRI-analytics.html
+bed317762e8b166d983171880ab14adc *inst/doc/tciu-fMRI-analytics.html
 7d657ff89738292389585959b3760b64 *man/GaussSmoothArray.Rd
 3e68aa50576cfa561c708f4b79dce1a1 *man/GaussSmoothKernel.Rd
 6db1195ed5bb12b81f4e970e98cb51cf *man/ILT.Rd
