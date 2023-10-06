@@ -4,6 +4,8 @@
 #' @param ksize Dimensions of the discrete kernel size.
 #' @param sigma The covariance matrix of the Gaussian kernel.
 #' 
+#' @return a 3 dimensional array with size = (ksize, ksize, ksize)
+#' 
 #' @export
 
 

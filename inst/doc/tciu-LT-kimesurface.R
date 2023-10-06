@@ -7,7 +7,7 @@ require(magrittr)
 require(plotly)
 require(ggplot2)
 
-## ----eval=FALSE---------------------------------------------------------------
+## ----eval=FALSE, fig.align = "center", warning=FALSE, message=FALSE, fig.width = 9----
 #  # For this part of code, we comment it out and import the output plot already generated before to reduce time
 #  # But this part of code can be run successfully. If you are interested, you can try it on your computer!
 #  
@@ -63,7 +63,7 @@ require(ggplot2)
 #  
 
 ## ----fig.align="center", warning=FALSE, message=FALSE-------------------------
-sample[[1]]
+sample_save[[1]]
 
 ## ----warning=FALSE, message=FALSE, fig.width = 9, fig.align = "center", eval=FALSE----
 #  # For this part of code, we comment it out and import the output plot already generated before to reduce time
@@ -108,29 +108,32 @@ sample[[1]]
 #  lt_ilt_sine
 
 ## ---- fig.align = "center", warning=FALSE, message=FALSE, fig.width = 9-------
-sample[[2]]
+sample_save[[2]]
 
-## ----warning=FALSE, message=FALSE---------------------------------------------
-x = seq(0, 2, length.out=50)[2:50]; y = seq(0, 2, length.out=50)[2:50];
-# do Kimesurface transform on sine function
-z2_grid = kimesurface_transform(FUNCT = function(t) { sin(t) },
-                      real_x = x, img_y = y)
+## ----warning=FALSE, message=FALSE, eval=FALSE---------------------------------
+#  x = seq(0, 2, length.out=50)[2:50]; y = seq(0, 2, length.out=50)[2:50];
+#  # do Kimesurface transform on sine function
+#  z2_grid = kimesurface_transform(FUNCT = function(t) { sin(t) },
+#                        real_x = x, img_y = y)
+#  
+#  # make the plot after Kimesurface transformation
+#  surf_color <- atan2(Im(z2_grid), Re(z2_grid))
+#  colorscale = cbind(seq(0, 1, by=1/(length(x) - 1)), rainbow(length(x)))
+#  magnitude <- (sqrt( Re(z2_grid)^2+ Im(z2_grid)^2))
+#  
+#  
+#  p <- plot_ly(hoverinfo="none", showscale = FALSE) %>%
+#      add_trace(z = magnitude,
+#                surfacecolor=surf_color, colorscale=colorscale,   #Phase-based color
+#                type = 'surface', opacity=1, visible=T) %>%
+#      layout(title = "fMRI Kime-Surface, F=LT(fMRI) \n Height=Mag(F), Color=Phase(F)", showlegend = FALSE,
+#             scene = list(aspectmode = "manual", aspectratio = list(x=1, y=1, z=1.0) ) ) # 1:1:1 aspect ratio
+#  p
 
-# make the plot after Kimesurface transformation
-surf_color <- atan2(Im(z2_grid), Re(z2_grid))
-colorscale = cbind(seq(0, 1, by=1/(length(x) - 1)), rainbow(length(x)))
-magnitude <- (sqrt( Re(z2_grid)^2+ Im(z2_grid)^2))
+## ----fig.align = "center", warning=FALSE, message=FALSE, fig.width = 9--------
+sample_save[[3]]
 
-
-p <- plot_ly(hoverinfo="none", showscale = FALSE) %>%
-    add_trace(z = magnitude, 
-              surfacecolor=surf_color, colorscale=colorscale,   #Phase-based color
-              type = 'surface', opacity=1, visible=T) %>%
-    layout(title = "fMRI Kime-Surface, F=LT(fMRI) \n Height=Mag(F), Color=Phase(F)", showlegend = FALSE,
-           scene = list(aspectmode = "manual", aspectratio = list(x=1, y=1, z=1.0) ) ) # 1:1:1 aspect ratio
-p
-
-## ----warning=FALSE, message=FALSE, eval = FALSE-------------------------------
+## ----warning=FALSE, message=FALSE, eval = FALSE, fig.align = "center", fig.width = 9----
 #  # load the fMRI data
 #  
 #  fMRIURL <- "http://socr.umich.edu/HTML5/BrainViewer/data/fMRI_FilteredData_4D.nii.gz"
@@ -184,25 +187,28 @@ p
 #  p_fmri
 
 ## ----fig.align = "center", warning=FALSE, message=FALSE, fig.width = 9--------
-sample[[3]]
+sample_save[[4]]
 
-## ----warning=FALSE, message=FALSE, fig.width = 9, fig.align = "center"--------
-time_points <- seq(0+0.001, 2*pi, length.out = 180)
-inv_data = inv_kimesurface_transform(time_points, z2_grid)
-inv_data = inv_kimesurface_transform(time_points, z2_grid,num_length = 23,
-                                     m=1, msg=TRUE)
+## ----warning=FALSE, message=FALSE, fig.width = 9, fig.align = "center", eval=FALSE----
+#  time_points <- seq(0+0.001, 2*pi, length.out = 180)
+#  inv_data = inv_kimesurface_transform(time_points, z2_grid)
+#  inv_data = inv_kimesurface_transform(time_points, z2_grid,num_length = 23,
+#                                       m=1, msg=TRUE)
+#  
+#  time_Intensities_ILT_df2 <- as.data.frame(cbind(Re=scale(Re(inv_data$Smooth_Reconstruction)),
+#                                                  Im=scale(Re(inv_data$Raw_Reconstruction)),
+#                                                  fMRI=scale(Re(sin(time_points))),
+#                                                  time_points=time_points))
+#  colnames(time_Intensities_ILT_df2) = c("Smooth Reconstruction",
+#                                         "Raw Reconstruction",
+#                                         "Original Sin", "time_points")
+#  df = reshape2::melt(time_Intensities_ILT_df2, id.var = "time_points")
+#  pppp<-ggplot(df, aes(x = time_points, y = value, colour = variable)) +
+#    geom_line(linetype=1, lwd=3) +
+#    ylab("Function Intensity") + xlab("Time") +
+#    theme(legend.position="top")+
+#    labs(title= bquote("Comparison between" ~ "f(t)=Smooth(Sin)(t)" ~ "and Smooth(ILT(LT(Sin)))(t); Range [" ~ 0 ~":"~ 2*pi~"]"))
 
-time_Intensities_ILT_df2 <- as.data.frame(cbind(Re=scale(Re(inv_data$Smooth_Reconstruction)),
-                                                Im=scale(Re(inv_data$Raw_Reconstruction)),
-                                                fMRI=scale(Re(sin(time_points))),
-                                                time_points=time_points))
-colnames(time_Intensities_ILT_df2) = c("Smooth Reconstruction",
-                                       "Raw Reconstruction",
-                                       "Original Sin", "time_points")
-df = reshape2::melt(time_Intensities_ILT_df2, id.var = "time_points")
-ggplot(df, aes(x = time_points, y = value, colour = variable)) +
-  geom_line(linetype=1, lwd=3) +
-  ylab("Function Intensity") + xlab("Time") +
-  theme(legend.position="top")+
-  labs(title= bquote("Comparison between" ~ "f(t)=Smooth(Sin)(t)" ~ "and Smooth(ILT(LT(Sin)))(t); Range [" ~ 0 ~":"~ 2*pi~"]"))
+## ----fig.align = "center", warning=FALSE, message=FALSE, fig.width = 9--------
+sample_save[[5]]
 

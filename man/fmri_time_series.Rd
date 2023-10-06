@@ -28,8 +28,8 @@ Besides, the reference \code{plotly} object can be added to the final result.
 }
 \examples{
 # load sample time-series data of one voxel in the brain provided by the package
-sample_voxel = sample[[5]]
-reference_plot = sample[[4]]
+sample_voxel = sample_save[[9]]
+reference_plot = sample_save[[8]]
 fmri_time_series(sample_voxel, voxel_location = NULL, is.4d = FALSE, ref = reference_plot)
 
 }

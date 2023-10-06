@@ -7,6 +7,8 @@
 #' @param mask A 3D 0-1 mask that delimits where the smoothing occurs.
 #' @param var.norm Logical flag indicating whether to normalize the variance of the smoothed array.
 #' 
+#' @return an array with the size of parameter x
+#' 
 #' @export
 
 

@@ -158,7 +158,7 @@ est.par.ridep.timeindep <- function(X, y, tol, max.iter) #time indep
     LL.new <- comp.LL(n, yr, yi, X, beta, theta, sr2, si2, rho)
     if(LL.new - LL.old < tol) conv <- 1
   }
-  if(iter > max.iter) print('Warning: Over max.iter')
+  if(iter > max.iter) warning('Warning: Over max.iter')
   par <- list(beta=beta, theta=theta, sr2=sr2, si2=si2, rho=rho)
   list(par=par, LL=LL.new)
 }
@@ -267,10 +267,10 @@ order.det.lrt.complex.sig2I <- function(X, yR, yI, max.iter, LL.eps,
 	phat <- 0
 	det <- 0
 	thresh <- qchisq(1-signif, df=1)
-	LL0 <- compute.LL.complex(X, yR, yI, max.iter, LL.eps, phat)
+	LL0 <- compute_LL_complex(X, yR, yI, max.iter, LL.eps, phat)
 	k <- 1
 	while(det==0 && k<=pmax){
-		LL1 <- compute.LL.complex(X, yR, yI, max.iter, LL.eps, k)
+		LL1 <- compute_LL_complex(X, yR, yI, max.iter, LL.eps, k)
 		stat <- 2 * (LL1 - LL0)
 		if(stat < thresh){
 			det <- 1
@@ -287,7 +287,7 @@ order.det.lrt.complex.sig2I <- function(X, yR, yI, max.iter, LL.eps,
 
 # Helper function for the above function that calculates the log-likelihood
 # Calls C function "Rwrapper_complex_unres_only" from complex_Sig=sig2I.c
-compute.LL.complex <- function(X, yR, yI, max.iter, LL.eps, p)
+compute_LL_complex <- function(X, yR, yI, max.iter, LL.eps, p)
 {
 	n <- nrow(X)
 	q <- ncol(X)

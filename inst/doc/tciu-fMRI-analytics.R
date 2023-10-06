@@ -13,7 +13,7 @@ fmri_generate = fmri_simulate_func(dim_data = c(64, 64, 40), mask = mask,
 dim(fmri_generate$fmri_data)
 
 ## ----fig.width = 7, fig.align = "center", warning=FALSE, message=FALSE--------
-fmri_time_series(sample[[5]], voxel_location = NULL, is.4d = FALSE, ref = sample[[4]])
+fmri_time_series(sample_save[[9]], voxel_location = NULL, is.4d = FALSE, ref = sample_save[[8]])
 
 ## ----fig.width = 7, fig.align = "center", warning=FALSE, message=FALSE--------
 # a data-frame with 160 rows and 4 columns: time (1:10), phases (8), states (2), and fMRI data (Complex or Real intensity)

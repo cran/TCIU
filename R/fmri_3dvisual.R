@@ -146,7 +146,7 @@ fmri_3dvisual = function(pval,
             # consider whether we can decide to change the interval cut based on the condition of p calue provided
             pval_df$colorgrp = as.numeric(pval_df$cut_invs)
             if (length(unique(pval_df$colorgrp)) <= 4){
-              print("The number of p ranges is originally less than 4, 
+              message("The number of p ranges is originally less than 4, 
                     it is recommended to turn 'multi_pranges' as FALSE.")
             }
             if(multi_pranges == FALSE){

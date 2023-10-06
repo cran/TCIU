@@ -13,6 +13,9 @@ GaussSmoothKernel(voxdim = c(1, 1, 1), ksize = 5, sigma = diag(3, 3))
 
 \item{sigma}{The covariance matrix of the Gaussian kernel.}
 }
+\value{
+a 3 dimensional array with size = (ksize, ksize, ksize)
+}
 \description{
 An internal function named GaussSmoothKernel. Original from AnalyzeFMRI package
 }

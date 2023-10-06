@@ -129,7 +129,7 @@ Parameters in this function:
 **Example**
 
 ```{r fig.width = 7, fig.align = "center", warning=FALSE, message=FALSE}
-fmri_time_series(sample[[5]], voxel_location = NULL, is.4d = FALSE, ref = sample[[4]])
+fmri_time_series(sample_save[[9]], voxel_location = NULL, is.4d = FALSE, ref = sample_save[[8]])
 ```
 
 ## Function "fmri_kimesurface" 

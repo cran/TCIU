@@ -26,6 +26,9 @@ GaussSmoothArray(
 
 \item{var.norm}{Logical flag indicating whether to normalize the variance of the smoothed array.}
 }
+\value{
+an array with the size of parameter x
+}
 \description{
 An internal function named GaussSmoothArray. Original from AnalyzeFMRI package
 }

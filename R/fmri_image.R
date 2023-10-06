@@ -34,7 +34,7 @@ fmri_image =  function(fmridata,
   zdim=dim(fmridata)[3]
   tdim=dim(fmridata)[4]
   if (option == "auto") {
-    print("Please key in x, y, z, and time in sequence")
+    message("Please key in x, y, z, and time in sequence")
     x = 0
     y = 0
     z = 0
@@ -42,25 +42,25 @@ fmri_image =  function(fmridata,
     while (x > xdim | x < 1 | x%%1 != 0) {
       x <- scan(n = 1)
       if (x > xdim | x < 1 | x%%1 != 0) {
-        print("input x is not in range or is not an integer! Please retype!")
+        message("input x is not in range or is not an integer! Please retype!")
       }
     }
     while (y > ydim | y < 1 | y%%1 != 0) {
       y <- scan(n = 1)
       if (y > ydim | y < 1 | y%%1 != 0) {
-        print("input y is not in range or is not an integer! Please retype!")
+        message("input y is not in range or is not an integer! Please retype!")
       }
     }
     while (z > zdim | z < 1 | z%%1 != 0) {
       z <- scan(n = 1)
       if (z > zdim | z < 1 | z%%1 != 0) {
-        print("input z is not in range or is not an integer! Please retype!")
+        message("input z is not in range or is not an integer! Please retype!")
       }
     }
     while (t > tdim | t < 1 | t%%1 != 0) {
       t <- scan(n = 1)
       if (t > tdim | t < 1 | t%%1 != 0) {
-        print("input time is not in range or is not an integer! Please retype!")
+        message("input time is not in range or is not an integer! Please retype!")
       }
     }
   } else if (option == "manually") {
