@@ -1,4 +1,4 @@
-fcae5fed775e5a1a5f108416688d815d *DESCRIPTION
+5441e8845898b19d4679c8ca4a4211a3 *DESCRIPTION
 0b984d754eb809d238a526ccfeba8f1d *NAMESPACE
 9cd799474cb26f23ce22e59f02a2b720 *R/GaussSmoothArray.R
 7c80f05931b5368c35f9fd75e63633e2 *R/GaussSmoothKernel.R
@@ -39,15 +39,15 @@ da11b9ac8bad7d24c46b50b15eb269d1 *data/mask_dict.RData
 6f772c019974d7ee774567903cfea02a *data/phase1_pval.RData
 d5b0408e5748713bb8b1f03be90b4bfb *data/phase2_pval.RData
 74f4dfe8d9c7f01cda8495d9fca2e39f *data/phase3_pval.RData
-37de0559efc6434561321e00fe271738 *data/sample_save.RData
+977125ddbe33c28c9809e06941e10d9e *data/sample_save.RData
 265962f7bfdaee73de539cb4b578e8ee *demo/00Index
 e9b7fef5d17f12840e96807ee6644456 *demo/fmri_demo_func.R
 5fefc4352a8d37c5b4044b7d31669bc8 *inst/doc/tciu-LT-kimesurface.R
 43c7c9509196f5e63c8c9337c32b65f7 *inst/doc/tciu-LT-kimesurface.Rmd
-d02ecb071e87cd7e44e103d32c2a295a *inst/doc/tciu-LT-kimesurface.html
+808d59576ebd92f286783afd3c195741 *inst/doc/tciu-LT-kimesurface.html
 11efc10c36fb71e9ba498d90c6a2205a *inst/doc/tciu-fMRI-analytics.R
 98b15f8cde9dbcd0fbd4a58ac003265e *inst/doc/tciu-fMRI-analytics.Rmd
-7f78ad9664940c67990278b4e4ec5382 *inst/doc/tciu-fMRI-analytics.html
+903160c21a731998620415fa4bceca08 *inst/doc/tciu-fMRI-analytics.html
 33bf664ee8a7edc61b86e1ac0a3cbd98 *man/GaussSmoothArray.Rd
 9d81969fc252fa652d537873702fdd19 *man/GaussSmoothKernel.Rd
 6db1195ed5bb12b81f4e970e98cb51cf *man/ILT.Rd
