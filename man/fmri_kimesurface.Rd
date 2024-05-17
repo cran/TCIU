@@ -25,11 +25,12 @@ The function \code{fmri_kimesurface} is display in 3D the kime-series as 2D mani
 \examples{
 # sample fMRI time-series vector of a single voxel
 sample_voxel = sample_save[[9]]
+\dontrun{
 fmri_kimesurface(sample_voxel, is.4d = FALSE)[[1]]
 fmri_kimesurface(sample_voxel, is.4d = FALSE)[[2]]
 fmri_kimesurface(sample_voxel, is.4d = FALSE)[[3]]
 fmri_kimesurface(sample_voxel, is.4d = FALSE)[[4]]
-
+}
 }
 \author{
 SOCR team <\url{http://socr.umich.edu/people/}>

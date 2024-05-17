@@ -1,12 +1,13 @@
 Package: TCIU
 Title: Spacekime Analytics, Time Complexity and Inferential Uncertainty
-Version: 1.2.5
-Authors@R: c(person("Yongkai", "Qiu", role = c("aut", "cre"), email = "yongkai@umich.edu"),
+Version: 1.2.6
+Authors@R: c(person("Yongkai", "Qiu", role = "aut", email = "yongkai@umich.edu"),
              person("Zhe", "Yin", role = "aut"),
              person("Jinwen", "Cao", role = "aut"),
              person("Yupeng", "Zhang", role = "aut"),
              person("Yuyao", "Liu", role = "aut"),
              person("Rongqian", "Zhang", role = "aut"),
+             person("Yueyang", "Shen", role = c("aut", "cre"), email = "petersyy@umich.edu"),
              person("Rouben", "Rostamian", role = "ctb"),
              person("Ranjan", "Maitra", role = "ctb"),
              person("Daniel", "Rowe", role = "ctb"),
@@ -33,28 +34,29 @@ Imports: stats, ggplot2, dplyr, tidyr, RColorBrewer, fancycut, scales,
         plotly, gridExtra, ggpubr, ICSNP, rrcov, geometry, DT,
         forecast, fmri, pracma, zoo, extraDistr, parallel, foreach,
         spatstat.explore, spatstat.geom, cubature, doParallel,
-        reshape2, MultiwayRegression
+        reshape2, MultiwayRegression, interp
 Suggests: oro.nifti, magrittr, knitr, rmarkdown
 License: GPL-3
 VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 NeedsCompilation: yes
 SystemRequirements: GNU make
-Packaged: 2024-03-08 13:28:30 UTC; qyk02
-Author: Yongkai Qiu [aut, cre],
+Packaged: 2024-05-17 19:24:36 UTC; petersyy
+Author: Yongkai Qiu [aut],
   Zhe Yin [aut],
   Jinwen Cao [aut],
   Yupeng Zhang [aut],
   Yuyao Liu [aut],
   Rongqian Zhang [aut],
+  Yueyang Shen [aut, cre],
   Rouben Rostamian [ctb],
   Ranjan Maitra [ctb],
   Daniel Rowe [ctb],
   Daniel Adrian [ctb] (gLRT method for complex-valued fMRI statistics),
   Yunjie Guo [aut],
   Ivo Dinov [aut]
-Maintainer: Yongkai Qiu <yongkai@umich.edu>
+Maintainer: Yueyang Shen <petersyy@umich.edu>
 Repository: CRAN
-Date/Publication: 2024-03-08 17:00:05 UTC
+Date/Publication: 2024-05-17 23:40:21 UTC

@@ -20,7 +20,7 @@ fmri_time_series(sample_save[[9]], voxel_location = NULL, is.4d = FALSE, ref = s
 datatable(fmri_kimesurface(fmri_generate$fmri_data, c(44,30,33))[[1]])
 # ON Kime-Surface
 fmri_kimesurface(fmri_generate$fmri_data, c(44,30,33))[[2]]
-# User can try themself to plot the off / on&off figure
+# User can try themself to plot the on / off / on&off figure
 # OFF Kime-Surface 
 # fmri_kimesurface(fmri_generate$fmri_data, c(44,30,33))[[3]]
 # ON&OFF Kime-Surface 
