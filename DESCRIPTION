@@ -1,6 +1,6 @@
 Package: TCIU
 Title: Spacekime Analytics, Time Complexity and Inferential Uncertainty
-Version: 1.2.6
+Version: 1.2.7
 Authors@R: c(person("Yongkai", "Qiu", role = "aut", email = "yongkai@umich.edu"),
              person("Zhe", "Yin", role = "aut"),
              person("Jinwen", "Cao", role = "aut"),
@@ -43,7 +43,7 @@ LazyData: true
 RoxygenNote: 7.3.1
 NeedsCompilation: yes
 SystemRequirements: GNU make
-Packaged: 2024-05-17 19:24:36 UTC; petersyy
+Packaged: 2024-09-15 02:19:12 UTC; petersyy
 Author: Yongkai Qiu [aut],
   Zhe Yin [aut],
   Jinwen Cao [aut],
@@ -59,4 +59,4 @@ Author: Yongkai Qiu [aut],
   Ivo Dinov [aut]
 Maintainer: Yueyang Shen <petersyy@umich.edu>
 Repository: CRAN
-Date/Publication: 2024-05-17 23:40:21 UTC
+Date/Publication: 2024-09-15 02:40:02 UTC

@@ -3,16 +3,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <R.h>
 
 /* ---------- 1D arrays ---------------------- */
 
 #define MAKE_1ARRAY(a,n) do {                                                \
-    (a) = malloc((n) * sizeof *(a));                                         \
+(a) = R_Calloc((size_t)(n), __typeof__(*(a)));                                           \
     if ((a)==NULL) {}                                                        \
 } while (0)                                                                  
 
 #define FREE_1ARRAY(a)  do {                                                 \
-    free(a);                                                                 \
+    R_Free(a);                                                                 \
     a = NULL;                                                                \
 } while (0)
 

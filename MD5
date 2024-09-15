@@ -1,4 +1,4 @@
-32dd743135253353205eba3b6f3c5163 *DESCRIPTION
+5537cdf16d679c518da855a49f57b204 *DESCRIPTION
 9972b46fbcc9cb5208c764be867bc4c7 *NAMESPACE
 9cd799474cb26f23ce22e59f02a2b720 *R/GaussSmoothArray.R
 7c80f05931b5368c35f9fd75e63633e2 *R/GaussSmoothKernel.R
@@ -44,10 +44,10 @@ d5b0408e5748713bb8b1f03be90b4bfb *data/phase2_pval.RData
 e9b7fef5d17f12840e96807ee6644456 *demo/fmri_demo_func.R
 5fefc4352a8d37c5b4044b7d31669bc8 *inst/doc/tciu-LT-kimesurface.R
 43c7c9509196f5e63c8c9337c32b65f7 *inst/doc/tciu-LT-kimesurface.Rmd
-700e52bd732b62f68836f44293b0a6ce *inst/doc/tciu-LT-kimesurface.html
+84dd351dc669df9fc31e5f61a4b89bf2 *inst/doc/tciu-LT-kimesurface.html
 827c5c3f6531581b469e84d636ed96c0 *inst/doc/tciu-fMRI-analytics.R
 cd182ba56dcc45d3baced57908fa4d16 *inst/doc/tciu-fMRI-analytics.Rmd
-a080aa8615ee0811528a815e66a60002 *inst/doc/tciu-fMRI-analytics.html
+90e66bfec55256af311980edaf7c818c *inst/doc/tciu-fMRI-analytics.html
 33bf664ee8a7edc61b86e1ac0a3cbd98 *man/GaussSmoothArray.Rd
 9d81969fc252fa652d537873702fdd19 *man/GaussSmoothKernel.Rd
 6db1195ed5bb12b81f4e970e98cb51cf *man/ILT.Rd
@@ -81,7 +81,7 @@ a67654dbb5d1fb4d49261b8dadeed413 *man/phase3_pval.Rd
 2a6f9e9e044a78154d3cfda5936d6f48 *src/Makevars.win
 437cdcd0c928e92110115c4e98d02dd5 *src/RC_interface.c
 258439b9b86147b934170cd833cdd3a3 *src/RC_interface.h
-00d02c486903b3973f537ec091480866 *src/array.h
+0ecd30218eee6564ee2812e9e626ed17 *src/array.h
 9d9d069ba0936685b7f5fa8f8722a075 *src/complex_Sig_gen.c
 f630033025e6e20badf65db05b1bd919 *src/complex_Sig_gen.h
 824d3e871f01ee17539882e3d580562b *src/complex_Sig_sig2I.c
@@ -91,7 +91,7 @@ f70c1799c55b1f03e3b7d877b3dcf8ee *src/complex_smoother.h
 99e2eaa3ee599a44f690f143ac6ca883 *src/mat_vec.c
 78b6d99108d2a394acb6dfb42340cb90 *src/mat_vec.h
 7c22b1b500cab25872924e218f1645f5 *src/registerDynamicSymbol.c
-2461cb79d3ddd42b9ae44ff442867d02 *src/spatial.c
+bd6e7f8402b3715ab551cbf5ef200603 *src/spatial.c
 3c3091b43c567a7693079e9186787eb9 *src/spatial.filters.linear.f
 86ece153fe482de2cd4edef2f97afca1 *src/spatial_smooth.c
 13508798da88066b3ba2b73a64d018ce *src/spatial_smooth.h
