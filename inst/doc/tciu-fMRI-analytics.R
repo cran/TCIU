@@ -45,33 +45,33 @@ fmri_stimulus_detect(fmridata= fmri_generate$fmri_data,
 dim(p_simulate_t_test)
 summary(p_simulate_t_test)
 
-## ---- eval = FALSE------------------------------------------------------------
-#  # do the FDR correction
-#  pval_fdr = fmri_post_hoc(phase2_pval , fdr_corr = "fdr",
-#  						 spatial_cluster.thr = NULL,
-#  						 spatial_cluster.size = NULL,
-#  						 show_comparison = FALSE)
-#  
-#  # do the spatial clustering
-#  pval_posthoc = fmri_post_hoc(pval_fdr, fdr_corr = NULL,
-#  							 spatial_cluster.thr = 0.05,
-#  							 spatial_cluster.size = 5,
-#  							 show_comparison = FALSE)
+## ----eval = FALSE-------------------------------------------------------------
+# # do the FDR correction
+# pval_fdr = fmri_post_hoc(phase2_pval , fdr_corr = "fdr",
+# 						 spatial_cluster.thr = NULL,
+# 						 spatial_cluster.size = NULL,
+# 						 show_comparison = FALSE)
+# 
+# # do the spatial clustering
+# pval_posthoc = fmri_post_hoc(pval_fdr, fdr_corr = NULL,
+# 							 spatial_cluster.thr = 0.05,
+# 							 spatial_cluster.size = 5,
+# 							 show_comparison = FALSE)
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  # the output figure is hidden
-#  for(axis in c("x", "y", "z")){
-#    axis_i = switch(axis,
-#                    "x" = {35},
-#                    "y" = {30},
-#                    "z" = {22})
-#    print(fmri_2dvisual(p_simulate_t_test, list(axis, axis_i),
-#                        hemody_data=NULL, mask=fmri_generate$mask,
-#                        p_threshold = 0.05, legend_show = TRUE,
-#                        method = "scale_p",
-#                        color_pal = "YlOrRd", multi_pranges=TRUE))
-#  }
-#  			
+# # the output figure is hidden
+# for(axis in c("x", "y", "z")){
+#   axis_i = switch(axis,
+#                   "x" = {35},
+#                   "y" = {30},
+#                   "z" = {22})
+#   print(fmri_2dvisual(p_simulate_t_test, list(axis, axis_i),
+#                       hemody_data=NULL, mask=fmri_generate$mask,
+#                       p_threshold = 0.05, legend_show = TRUE,
+#                       method = "scale_p",
+#                       color_pal = "YlOrRd", multi_pranges=TRUE))
+# }
+# 			
 
 ## ----fig.width = 9, fig.align = "center", warning=FALSE-----------------------
 fmri_3dvisual(p_simulate_t_test, fmri_generate$mask, 
@@ -79,13 +79,13 @@ fmri_3dvisual(p_simulate_t_test, fmri_generate$mask,
               multi_pranges=TRUE)$plot
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  # the two p value are the p value generated based on the simulated fMRI
-#  # and the p value saved in the package and finished post hoc test
-#  # the output figure is hidden
-#  fmri_pval_comparison_3d(list(p_simulate_t_test, phase3_pval), mask,
-#  				                list(0.05, 0.05), list("scale_p", "scale_p"),
-#  				                multi_pranges=FALSE)
-#  
+# # the two p value are the p value generated based on the simulated fMRI
+# # and the p value saved in the package and finished post hoc test
+# # the output figure is hidden
+# fmri_pval_comparison_3d(list(p_simulate_t_test, phase3_pval), mask,
+# 				                list(0.05, 0.05), list("scale_p", "scale_p"),
+# 				                multi_pranges=FALSE)
+# 
 
 ## ----fig.width = 9, fig.align = "center", warning=FALSE-----------------------
 fmri_pval_comparison_2d(list(p_simulate_t_test, phase3_pval), 
@@ -96,33 +96,33 @@ fmri_pval_comparison_2d(list(p_simulate_t_test, phase3_pval),
                         legend_show = FALSE, method = 'scale_p',
                         color_pal = "YlOrRd", multi_pranges=FALSE)
 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
-#  ROI_phase1 = fmri_ROI_phase1(fmri_generate$fmri_data, mask_label, mask_dict, stimulus_idx = fmri_generate$on_time)
+## ----eval = FALSE, echo = TRUE------------------------------------------------
+# ROI_phase1 = fmri_ROI_phase1(fmri_generate$fmri_data, mask_label, mask_dict, stimulus_idx = fmri_generate$on_time)
 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
-#  ROI_phase2 = fmri_ROI_phase2(fmridata = fmri_generate$fmridata, label_mask = mask_label,
-#                               ROI_label_dict = mask_dict, stimulus_idx = fmri_generate$on_time,
-#                               stimulus_dur = fmri_generate$dur, rrr_rank = 3,
-#                               fmri.design_order = 2, fmri.stimulus_TR = 3,
-#                               method = "t_test", parallel_computing = TRUE, max(detectCores()-2,1))
+## ----eval = FALSE, echo = TRUE------------------------------------------------
+# ROI_phase2 = fmri_ROI_phase2(fmridata = fmri_generate$fmridata, label_mask = mask_label,
+#                              ROI_label_dict = mask_dict, stimulus_idx = fmri_generate$on_time,
+#                              stimulus_dur = fmri_generate$dur, rrr_rank = 3,
+#                              fmri.design_order = 2, fmri.stimulus_TR = 3,
+#                              method = "t_test", parallel_computing = TRUE, max(detectCores()-2,1))
 
-## ---- eval = FALSE, echo = TRUE-----------------------------------------------
-#  # do the FDR correction
-#  # do the spatial clustering
-#  ROI_phase3 = fmri_post_hoc(ROI_phase2 , fdr_corr = "fdr",
-#                             spatial_cluster.thr = 0.05,
-#                             spatial_cluster.size = 5,
-#                             show_comparison = FALSE)
-
-## ----eval = FALSE-------------------------------------------------------------
-#  # the output figure is hidden due to the size of vignettes
-#  label_index = mask_dict$index
-#  label_name = as.character(mask_dict$name)
-#  label_mask = mask_label
-#  fmri_3dvisual_region(phase1_pval, mask_label, label_index, label_name, title = "phase1 p-values")
+## ----eval = FALSE, echo = TRUE------------------------------------------------
+# # do the FDR correction
+# # do the spatial clustering
+# ROI_phase3 = fmri_post_hoc(ROI_phase2 , fdr_corr = "fdr",
+#                            spatial_cluster.thr = 0.05,
+#                            spatial_cluster.size = 5,
+#                            show_comparison = FALSE)
 
 ## ----eval = FALSE-------------------------------------------------------------
-#  # the output figure is hidden due to the size of vignettes
-#  fmri_3dvisual_region(list(phase2_pval,phase3_pval), mask_label,
-#                       label_index, label_name, title = "phase2&3 p-values")
+# # the output figure is hidden due to the size of vignettes
+# label_index = mask_dict$index
+# label_name = as.character(mask_dict$name)
+# label_mask = mask_label
+# fmri_3dvisual_region(phase1_pval, mask_label, label_index, label_name, title = "phase1 p-values")
+
+## ----eval = FALSE-------------------------------------------------------------
+# # the output figure is hidden due to the size of vignettes
+# fmri_3dvisual_region(list(phase2_pval,phase3_pval), mask_label,
+#                      label_index, label_name, title = "phase2&3 p-values")
 

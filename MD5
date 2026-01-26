@@ -1,4 +1,4 @@
-5537cdf16d679c518da855a49f57b204 *DESCRIPTION
+5b8c3bcd5f7d9300a853fd621c019033 *DESCRIPTION
 9972b46fbcc9cb5208c764be867bc4c7 *NAMESPACE
 9cd799474cb26f23ce22e59f02a2b720 *R/GaussSmoothArray.R
 7c80f05931b5368c35f9fd75e63633e2 *R/GaussSmoothKernel.R
@@ -9,7 +9,7 @@ e95a0471a20d01843e81770894f42a36 *R/fmri_2dvisual.R
 d4e26fd02beda83b3f94820cdae7d89d *R/fmri_3dvisual_region.R
 0c5107dcb9174565d82518b238d06795 *R/fmri_ROI_phase1.R
 05cbeb34d309a7048c18d3065fa5bb7d *R/fmri_ROI_phase2.R
-9f815226a3c08f0cc52769fa10638eed *R/fmri_image.R
+7d5847320da4111097f91c8ad44b0fe0 *R/fmri_image.R
 cc293fc447d95d61a23ad0400d2d3d80 *R/fmri_kimesurface.R
 b771170f5c95835e99c778e60a174aa8 *R/fmri_post_hoc.R
 4f86bfe30b9ae8af53918af3a3bd53e1 *R/fmri_pval_comparison_2d.R
@@ -32,7 +32,7 @@ fa76925ecf5560214ac1617c065ee0ac *R/mask_dict.R
 ce8bc232c35a08c40eaebcfc787ab277 *R/phase2_pval.R
 6d97f19939ddff3ce7c27f377fae25bd *R/phase3_pval.R
 e88e05299a596b29c6a00e5df87fcf44 *R/sample_save.R
-c721364eb1f58281d342d1b3de44b52b *build/vignette.rds
+1cfd491a39915dbba3bd9867b87a6c2d *build/vignette.rds
 dcde89f2c3261e066d00eda8999b8741 *data/mask.RData
 da11b9ac8bad7d24c46b50b15eb269d1 *data/mask_dict.RData
 42464792069cdf4070db0c4f20b60aa5 *data/mask_label.RData
@@ -42,12 +42,12 @@ d5b0408e5748713bb8b1f03be90b4bfb *data/phase2_pval.RData
 977125ddbe33c28c9809e06941e10d9e *data/sample_save.RData
 265962f7bfdaee73de539cb4b578e8ee *demo/00Index
 e9b7fef5d17f12840e96807ee6644456 *demo/fmri_demo_func.R
-5fefc4352a8d37c5b4044b7d31669bc8 *inst/doc/tciu-LT-kimesurface.R
+2167ba4267f25a4a347600d224eb9664 *inst/doc/tciu-LT-kimesurface.R
 43c7c9509196f5e63c8c9337c32b65f7 *inst/doc/tciu-LT-kimesurface.Rmd
-84dd351dc669df9fc31e5f61a4b89bf2 *inst/doc/tciu-LT-kimesurface.html
-827c5c3f6531581b469e84d636ed96c0 *inst/doc/tciu-fMRI-analytics.R
+482ec37b5d4fde53a96a7e767da397ae *inst/doc/tciu-LT-kimesurface.html
+b21c0da5bfb80daf71b76049872d6bf2 *inst/doc/tciu-fMRI-analytics.R
 cd182ba56dcc45d3baced57908fa4d16 *inst/doc/tciu-fMRI-analytics.Rmd
-90e66bfec55256af311980edaf7c818c *inst/doc/tciu-fMRI-analytics.html
+dd96faaab086c43945517d3407b202ce *inst/doc/tciu-fMRI-analytics.html
 33bf664ee8a7edc61b86e1ac0a3cbd98 *man/GaussSmoothArray.Rd
 9d81969fc252fa652d537873702fdd19 *man/GaussSmoothKernel.Rd
 6db1195ed5bb12b81f4e970e98cb51cf *man/ILT.Rd
